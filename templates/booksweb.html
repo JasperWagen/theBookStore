@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bookpage</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;
+  max-width: 800px;
+  text-align: left;
+  margin: auto;
+  
+}
+
+p {
+  margin: 0px 100px;
+}
+
+h1 {
+  font-family: Arial;
+  font-weight: bold;
+  padding-bottom: 25px;
+  font-size: 2em;
+  text-align: center;
+  color: #000000
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+</style>
+
+<body>
+  <header> 
+    <h1>Book Index</h1>
+  </header>
+  {%for book in all_books%}
+  <p>Author - {{book.Author}}</p>
+  <p>Title - {{book.Title}}</p>
+  <p>Rating - {{book.Rating}}/5</p>
+  <br>
+  {%endfor%}
+  
+
+  <a href='{{url_for("bookform")}}'>Add a new book</a>
+</body>

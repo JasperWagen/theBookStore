@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SuperstarsRaw</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:white;"
+}
+
+h1 {
+  font-family: Arial;
+  font-weight: bold;
+  padding-bottom: 25px;
+  font-size: 2em;
+  text-align: center;
+  color: #ffffff
+}
+
+header {
+  background-color: #000;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: #f8f8f8;
+}
+
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; 
+  background: #000;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 100%;
+  background-color: #FFFFFF;
+  height: 300px; 
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+  color: #f8f8f8;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/WWE_Superstars_logo.png" alt="Not my image">
+</header>
+
+<section>
+  
+  <article>
+    <h1>RAW Superstars</h1>
+    <!--<div id="result" style="color:red"></div>-->
+    <table style="width:100%">
+        <tr>
+          <th><a href="http://127.0.0.1:5000/api/v1/resources/wwe?brand=Raw">
+            <img alt=Raw src="https://vignette.wikia.nocookie.net/logopedia/images/5/57/WWE_Raw_Logo_2019.png/revision/latest/scale-to-width-down/340?cb=20191001192458"></th>
+        </tr>
+    </table>
+    <h2>Make a table based on the value of a drop down menu.</h2>
+
+<select id="myselect" onchange="change_myselect(this.value)">
+  <option value="">Choose an option:</option>
+  <option value="name">name</option>
+
+</select>
+
+<p id="demo"></p>
+  </article>
+</section>
+
+<script>
+function change_myselect(wwedatabase) {
+  var obj, dbParam, xmlhttp, myObj, x, txt = "";
+  obj = { table: starsdata, limit: 20 };
+  dbParam = JSON.stringify(obj);
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myObj = JSON.parse(this.responseText);
+      txt += "<table border='1'>"
+      for (x in myObj) {
+        txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+      }
+      txt += "</table>"    
+      document.getElementById("demo").innerHTML = txt;
+      }
+    };
+  xmlhttp.open("POST", "json_demo_html_table.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+</script>
+</body>
