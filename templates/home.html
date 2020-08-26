@@ -1,151 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Supertars</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:black;"
-}
-
-h1 {
-  font-family: Arial;
-  font-weight: bold;
-  padding-bottom: 25px;
-  font-size: 2em;
-  text-align: center;
-  color: #ffffff
-}
-
-header {
-  background-color: #000;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: #f8f8f8;
-}
-
-nav {
-  float: left;
-  width: 30%;
-  height: 300px; 
-  background: #000;
-  padding: 20px;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-article {
-  float: left;
-  padding: 20px;
-  width: 100%;
-  background-color: #000000;
-  height: 300px; 
-}
-
-section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-footer {
-  background-color: #000;
-  padding: 10px;
-  text-align: center;
-  color: #f8f8f8;
-}
-
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
+<div class="border">
+  <div id="left"></div>
+  <div id="right"></div>
+  <div id="top"></div>
+  <div id="bottom"></div>
+</div>
 <body>
-
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/WWE_Superstars_logo.png" alt="Not my image">
-</header>
-<!--<?php
-$servername = "localhost";
-$username = "James";
-$password = "linux";
-$dbname = "wwedatabase";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT name, brand FROM starsdata";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br> Name: ". $row["name"]. " " . $row["brand"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-$conn->close();
-?> -->
-<section>
-  <article>
-    <h1>CLICK A SHOW TO SEE THEIR CURRENT ROSTER!!!</h1>
-    <!--<div id="result" style="color:red"></div>-->
-    <table style="width:100%">
-        <tr>
-          <th><a href="http://127.0.0.1:5000/api/v1/resources/wwe?brand=Raw">
-            <img alt=Raw src="https://vignette.wikia.nocookie.net/logopedia/images/5/57/WWE_Raw_Logo_2019.png/revision/latest/scale-to-width-down/340?cb=20191001192458"></th>
-          <th><a href="http://127.0.0.1:5000/api/v1/resources/wwe?brand=Smackdown">
-            <img alt=Smackdown src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4081702c-a6b1-4b37-96fa-5cd63833eb34/daucsnx-060df5f2-a55e-498f-952d-6a595c72f49f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNDA4MTcwMmMtYTZiMS00YjM3LTk2ZmEtNWNkNjM4MzNlYjM0XC9kYXVjc254LTA2MGRmNWYyLWE1NWUtNDk4Zi05NTJkLTZhNTk1YzcyZjQ5Zi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.IPhSihF9bFHwuCwVsULNrd-WC6XO28SnVnMULb06sA8"></th> 
-          <th><a href="http://127.0.0.1:5000/api/v1/resources/wwe?brand=NXT">
-            <img alt=NXT src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f62c2f82-5d9a-4078-b0e7-0a5b1a1646ac/d869af1-cd41f68a-d41b-40ba-b647-13925b5ba0b6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjYyYzJmODItNWQ5YS00MDc4LWIwZTctMGE1YjFhMTY0NmFjXC9kODY5YWYxLWNkNDFmNjhhLWQ0MWItNDBiYS1iNjQ3LTEzOTI1YjViYTBiNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.P7YtM3X2nf3sghLe3NfLcrrLgxMT5JMUPk0IjdVCWDI"></th>
-        </tr>
-    </table>
-  </article>
-</section>
-
-<script>
-// var getJSON = function(url) {
-//   return new Promise(function(resolve, reject) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('get', url, true);
-//     xhr.responseType = 'json';
-//     xhr.onload = function() {
-//       var status = xhr.status;
-//       if (status == 200) {
-//         resolve(xhr.response);
-//       } else {
-//         reject(status);
-//       }
-//     };
-//     xhr.send();
-//   });
-// };
-
-// getJSON('http://127.0.0.1:5000/api/v1/resources/wwe?brand=Raw').then(function(data) {
-//     //alert('Your Json result is:  ' + data.result); //you can comment this, i used it to debug
-
-//     result.innerText = data.result; //display the result in an HTML element
-// }, function(status) { //error detection....
-//   alert('Something went wrong.');
-// });
-</script>
+    <div class = "home">
+        <h1><a href="{{url_for("index")}}">The Book Store</a></h1>
+    </div>
 </body>
+

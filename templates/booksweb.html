@@ -1,66 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bookpage</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookpage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:white;
-  max-width: 800px;
-  text-align: left;
-  margin: auto;
-  
-}
-
-p {
-  margin: 0px 100px;
-}
-
-h1 {
-  font-family: Arial;
-  font-weight: bold;
-  padding-bottom: 25px;
-  font-size: 2em;
-  text-align: center;
-  color: #000000
-}
-
-header {
-  background-color: rgb(255, 255, 255);
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: #000000;
-}
-
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-
-</style>
 
 <body>
-  <header> 
+  <div class ="title">
     <h1>Book Index</h1>
-  </header>
-  {%for book in all_books%}
-  <p>Author - {{book.Author}}</p>
-  <p>Title - {{book.Title}}</p>
-  <p>Rating - {{book.Rating}}/5</p>
+  </div>
   <br>
-  {%endfor%}
-  
+  <div class = "main">
+    <div class="newbook">
+      <!-- <a href='{{url_for("bookform")}}'>Add a new book</a> -->
+      <button onclick="newbook()">New Book</button>
+        <script>
+            function newbook() {
+            location.href="/newbook"
+            }
+        </script>
+    </div>
+    {%for book in all_books%}
+      <div class="bookTitle">
+        <a href="/index/{{book.ID}}">{{book.Title}}</a>
+      </div>
+      <div class="bookDiscription">
+        <p>Written by - {{book.Author}}</p>
+        <p>Rating - {{book.Rating}}/5</p>
+      </div>
+      <br>
+    {%endfor%}
+    
 
-  <a href='{{url_for("bookform")}}'>Add a new book</a>
+    
+  </div>
 </body>

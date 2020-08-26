@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+  
+h1 {
+  font-family: Cambria;
+  font-weight: 100;
+  margin: 30px 100px;
+  text-align: center;
+  font-size: 70px;
+}
+
+body {
+  font-family: "Inter","Roboto",-apple-system,system-ui,BlinkMacSystemFont,
+  "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",Helvetica,Arial,
+  sans-serif;
+  font-weight: 300;
+  max-width: 1000px;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 400px;
+  color: rgb(65, 65, 65);
+  padding-top: 100px;
+}
+
+img {
+  float: right;
+  width: 250px;
+  height: auto;
+  display: inline-block;
+}
+
+.main {
+  margin: 0px 100px;
+  
+}
+
+.newbook{
+  float: right;
+}
+
+.bookTitle{
+  font-size: 30px;
+}
+
+.bookDiscription {
+  margin: 0px 0px 20px 0px;
+  font-size: 15px;
+}
+
+p {
+  margin: 10px;
+  display: inline-block;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  margin: 10px;
+}
+
+a:hover {
+  color: rgb(200, 75, 0);
+}
+
+
+header {
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: #000000;
+}
+
+#Description {
+  width: 450px;
+}
+
+img {
+  padding: 0px 0px 0px 0px;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}

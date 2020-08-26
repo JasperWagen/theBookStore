@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{{book.Title}} - {{book.Author}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <h1>Book Index</h1>
+    <br><br><br>
+    <div class="main">
+        
+        <div class="bookTitle">
+
+            <p>{{book.Title}}</p>
+            
+        </div>
+            <img src="{{ url_for('static', filename=fileName) }}" class = "img">
+            <p>Author - {{book.Author}}</p>
+            <p>Rating - {{book.Rating}}/5</p>
+            
+            <br>
+            <p id="Description">Description: {{book.Description}}</p>
+            
+            
+            <br>
+            <br>
+
+        <button onclick="myFunction()">Delete</button>
+        <script>
+            function myFunction() {
+              var txt;
+              if (confirm("Are you sure you want to delete this book")) {
+                txt = "You pressed OK!";
+                location.href="/index/delete/{{book.ID}}"
+              } else {
+                txt = "You pressed Cancel!";
+              }
+              document.getElementById("demo").innerHTML = txt;
+            }
+            </script>
+        <br><br>
+        <button onclick="backtobookpage()">Back to books</button>
+        <script>
+            function backtobookpage() {
+            location.href="/index"
+            }
+        </script>
+        <br><br>
+        
+    </div>
+</body>
+

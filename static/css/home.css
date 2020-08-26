@@ -1,0 +1,71 @@
+@media
+
+/* Fairly small screens including iphones */
+only screen and (max-width: 800px),
+
+/* iPads */
+only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+
+{
+	#top, #bottom, #left, #right { display: none; }
+}
+
+.border {
+    opacity: 0.3;
+}
+
+#aliens {
+    font-size: 100px;
+}
+
+body {
+    background-image: url("../BGHome.jpg");
+    background-size: auto;
+    background-position: center top;
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    margin: auto;
+    padding-top: 300px;
+    text-align: center;
+
+}
+
+h1 {
+    color:rgb(65, 65, 65);
+    font-size: 100px;
+    font-weight: 100;
+    
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+    background-color: rgba(150, 150, 150, 0.7);
+    padding:  0px 30px;
+    border-radius: 20px;
+}
+
+a:hover {
+    color: rgb(200, 200, 200);
+    text-shadow: 5px 10px #0000006e;
+    transition: color 1s ease-in-out, text-shadow 1s ease-in-out;
+}
+
+#top, #bottom, #left, #right {
+	background: rgb(255, 255, 255);
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 50px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 50px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }

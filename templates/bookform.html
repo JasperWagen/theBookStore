@@ -1,20 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Add a book</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
 <h1>New Book</h1>
 
-<form action="" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-        {{ form.author.label }}<br>
-        {{ form.author(size=32) }}
-    </p>
-    <p>
-        {{ form.title.label }}<br>
-        {{ form.title(size=32) }}
-    </p>
-    <p>
-        {{ form.rating.label }}<br>
-        {{ form.rating(size=32) }}
-    </p>
-    
-    <p>{{ form.submit() }}</p>
-
-<a href='{{url_for("index")}}'>Index</a> 
+<body>
+    <form action="" method="post"  enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.author.label }}<br>
+            {{ form.author(size=32) }}
+        </p>
+        <br>
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}
+        </p>
+        <br>
+        <p>
+            {{ form.rating.label }}<br>
+            {{ form.rating() }}
+        </p>
+        <br>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </p>
+        <br>
+        <p>
+            {{ form.photo.label }}<br>
+            {{ form.photo(size=32) }}
+        </p>
+        <br>
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <br>
+    <a href='{{url_for("index")}}'>Back to Book Index</a> 
+</body>
