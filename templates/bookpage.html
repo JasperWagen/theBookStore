@@ -30,12 +30,14 @@
             function myFunction() {
               var txt;
               if (confirm("Are you sure you want to delete this book")) {
-                txt = "You pressed OK!";
-                location.href="/index/delete/{{book.ID}}"
-              } else {
-                txt = "You pressed Cancel!";
+                
+                return fetch('/index/delete/' + '{{book.ID}}', 
+                    { method: 'delete' 
+                }) .then(function backtobookpage() {
+                return location.href="/index"
+                })
               }
-              document.getElementById("demo").innerHTML = txt;
+              
             }
             </script>
         <br><br>

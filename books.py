@@ -1,4 +1,4 @@
-from flask import request, jsonify, render_template, flash, url_for, redirect, abort
+from flask import request, jsonify, render_template, flash, url_for, redirect, abort, Response
 import sqlite3, json, flask, uuid
 import bookclass
 from forms import BookForm
@@ -43,7 +43,7 @@ def bookPage(id):
     except IndexError:
         abort(404)
 
-@app.route('/index/delete/<ID>', methods=['GET'])
+@app.route('/index/delete/<ID>', methods=['DELETE', 'GET'])
 def delete_entry(ID):
     try:
         conn = sqlite3.connect('bookdata')
@@ -52,7 +52,10 @@ def delete_entry(ID):
         cur.execute('delete from BooksTable WHERE id = ?', [ID])
         conn.commit()
         conn.close()
-        return redirect(url_for('index'))
+        if cur.rowcount != 1:
+            abort(404)
+        
+        return Response(status = 200)
 
     except IndexError:
         abort(404)
