@@ -6,7 +6,7 @@ from config import Config
 from PIL import Image
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+#app.config["DEBUG"] = True
 
 def dict_factory(cursor, row):
     d = {}
@@ -93,5 +93,5 @@ def page_not_found(e):
 
 if __name__ == '__main__':
     app.config.from_object(Config)
-    app.run()
+    app.run(host="0.0.0.0", debug=True)
     
